@@ -1,5 +1,6 @@
 <script>
 // import Layout from '@layouts/main'
+import ENV from './../../utils/getEnv'
 
 export default {
   // components: { Layout },
@@ -14,8 +15,8 @@ export default {
   methods: {
     getBlocks() {
       const vm = this
-
-      fetch('http://localhost:12101/explorer/json/blocks').then(response => response.json().then((json) => {
+      
+      fetch(`${ENV.apiUrl}/explorer/json/blocks`).then(response => response.json().then((json) => {
         vm.blocks = json
       }))
     },

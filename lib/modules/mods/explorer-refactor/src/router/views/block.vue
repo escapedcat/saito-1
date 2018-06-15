@@ -2,6 +2,7 @@
 // import Layout from '@layouts/main'
 import toDate from 'date-fns/toDate'
 import format from 'date-fns/format'
+import ENV from './../../utils/getEnv'
 
 export default {
   // components: { Layout },
@@ -30,7 +31,7 @@ export default {
     getBlock() {
       const vm = this
 
-      fetch(`http://localhost:12101/explorer/json/block?hash=${this.$route.params.blockId}`).then(response => response.json().then((json) => {
+      fetch(`${ENV.apiUrl}/explorer/json/block?hash=${this.$route.params.blockId}`).then(response => response.json().then((json) => {
         vm.block = json
       }))
     },
