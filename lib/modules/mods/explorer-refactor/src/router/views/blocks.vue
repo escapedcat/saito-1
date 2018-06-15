@@ -29,11 +29,13 @@ export default {
 
     <h1>Blocks</h1>
 
-    <ul>
+    <ul class="list-block">
       <li
         v-for="item in blocks"
         :key="item.id"
-        :class="{'is-longest': item.isLongest}"
+        :class="{
+          'is-longest': item.isLongest,
+        }"
         tabindex="0"
       >
         <ul>
@@ -56,3 +58,11 @@ export default {
   </div>
   <!-- </Layout> -->
 </template>
+
+<!--
+<style lang="scss" scoped>
+  .list-block {
+    background: red;
+  }
+</style>
+-->
