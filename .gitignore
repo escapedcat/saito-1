@@ -28,5 +28,4 @@ lib/modules/mods/appstore/saitolib/*
 lib/modules/mods/appstore/web/cache/*
 extras/chrome/key.pem
 extras/chrome/modules/mods/*
-
-
+.eslintcache
