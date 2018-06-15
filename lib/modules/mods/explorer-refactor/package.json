@@ -11,6 +11,7 @@
   "author": "hannes schluchtmann",
   "license": "ISC",
   "dependencies": {
+    "date-fns": "2.0.0-alpha.10",
     "vue": "2.5.16",
     "vue-router": "3.0.1"
   },

@@ -38,20 +38,24 @@ export default {
         }"
         tabindex="0"
       >
-        <ul>
-          <li>
-            id: {{ item.id }}
-          </li>
-          <li>
-            hash: {{ item.hash }}
-          </li>
-          <li v-if="item.prevHash">
-            previous hash: {{ item.prevHash }}
-          </li>
-          <li v-else>
-            ¯\_(ツ)_/¯
-          </li>
-        </ul>
+        <router-link
+          :to="{ name: 'block', params: { blockId: item.hash }}"
+        >
+          <ul>
+            <li>
+              id: {{ item.id }}
+            </li>
+            <li>
+              hash: {{ item.hash }}
+            </li>
+            <li v-if="item.prevHash">
+              previous hash: {{ item.prevHash }}
+            </li>
+            <li v-else>
+              ¯\_(ツ)_/¯
+            </li>
+          </ul>
+        </router-link>
       </li>
     </ul>
 
