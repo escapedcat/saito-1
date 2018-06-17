@@ -17,7 +17,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/', // path where to find the bundled assets and chunks
+    publicPath: process.env.PUBLIC_PATH || '/', // path where to find the bundled assets and chunks
     filename: '[name].[hash].js',
   },
   module: {
@@ -79,7 +79,7 @@ module.exports = {
     }),
    ],
   devServer: {
-    contentBase: [resolve('src'), resolve('config-env/local/')],
+    contentBase: [resolve('src'), resolve('config-env/dev/')],
     historyApiFallback: true,
     compress: true,
     port: 9000,

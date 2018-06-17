@@ -15,7 +15,7 @@ export default {
   methods: {
     getBlocks() {
       const vm = this
-      
+
       fetch(`${ENV.apiUrl}/explorer/json/blocks`).then(response => response.json().then((json) => {
         vm.blocks = json
       }))

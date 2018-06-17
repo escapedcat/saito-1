@@ -4,9 +4,9 @@
   "description": "big-data application blockchain",
   "main": "start.js",
   "scripts": {
-    "dev": "cd lib && nodemon start.js",
-    "start": "cd lib && NODE_ENV=prod nodemon start.js",
-    "serve": "cd lib && NODE_ENV=prod nohup node --max_old_space_size=4144 start.js",
+    "dev": "nodemon ./lib/start.js",
+    "start": "NODE_ENV=prod nodemon ./lib/start.js & http-server ./public/",
+    "serve": "NODE_ENV=prod nohup node --max_old_space_size=4144 ./lib/start.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -34,6 +34,7 @@
     "ethereumjs-util": "^5.2.0",
     "express": "^4.16.3",
     "express-fileupload": "^0.4.0",
+    "http-server": "0.11.1",
     "keythereum": "^1.0.3",
     "markdown": "^0.5.0",
     "merkle-tree-gen": "^1.1.0",
@@ -52,6 +53,6 @@
     "winston-daily-rotate-file": "^3.2.1"
   },
   "devDependencies": {
-    "nodemon": "^1.17.5"
+    "nodemon": "1.17.5"
   }
 }
