@@ -5,7 +5,7 @@
   "main": "start.js",
   "scripts": {
     "dev": "nodemon ./lib/start.js",
-    "start": "NODE_ENV=prod nodemon ./lib/start.js & http-server ./public/",
+    "start": "NODE_ENV=prod nodemon ./lib/start.js",
     "serve": "NODE_ENV=prod nohup node --max_old_space_size=4144 ./lib/start.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -53,6 +53,7 @@
     "winston-daily-rotate-file": "^3.2.1"
   },
   "devDependencies": {
-    "nodemon": "1.17.5"
+    "nodemon": "1.17.5",
+    "serve-static": "^1.13.2"
   }
 }

@@ -18,10 +18,13 @@ npm install
 ## Build and test dist against saito
 1. Create `dist` build:
     ```
-    npm run build
+    npm run build:dev
     ```
-1. In saito root `npm start`
-1. `http://localhost:8080`
+1. Run saito on `http://localhost:12101`
+1. Open blockchain explorer `http://localhost:12101/explorer-refactor`
+
+### Known issues
+1. SPA breaks on reload because express needs to forward all routes/URLs
 
 
 ## Config information

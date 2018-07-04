@@ -17,7 +17,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: process.env.PUBLIC_PATH || '/', // path where to find the bundled assets and chunks
+    // publicPath: process.env.PUBLIC_PATH || '', // path where to find the bundled assets and chunks
+    publicPath: '', // path where to find the bundled assets and chunks
     filename: '[name].[hash].js',
   },
   module: {
@@ -62,20 +63,19 @@ module.exports = {
     new VueLoaderPlugin(),
 
     new HtmlWebpackPlugin({
-      inject: false,
+      inject: 'body',
       hash: true,
       template: './src/index.tmpl',
       filename: 'index.html',
-      inject: 'body',
       showErrors: true,
-      minify: {
-        minifyCSS: true,
-        collapseWhitespace: true,
-        removeComments: true,
-        removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-      },
+      // minify: {
+      //   minifyCSS: true,
+      //   collapseWhitespace: true,
+      //   removeComments: true,
+      //   removeRedundantAttributes: true,
+      //   removeScriptTypeAttributes: true,
+      //   removeStyleLinkTypeAttributes: true,
+      // },
     }),
    ],
   devServer: {
@@ -89,9 +89,9 @@ module.exports = {
       warnings: false,
       errors: true,
     },
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-    },
+    // headers: {
+    //   'Access-Control-Allow-Origin': '*',
+    // },
     stats: {
       color: true,
       modules: false,
