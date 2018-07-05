@@ -17,7 +17,8 @@ export default {
       const vm = this
 
       fetch(`${ENV.apiUrl}/explorer/json/blocks`).then(response => response.json().then((json) => {
-        vm.blocks = json
+        const data = json
+        vm.blocks = data.slice().reverse()
       }))
     },
   },

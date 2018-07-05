@@ -9,13 +9,10 @@ export default {
   data() {
     return {
       block: null,
+      transactions: null,
     }
   },
   computed: {
-    transactions() {
-      const data = this.block.transactions
-      return JSON.parse(data)
-    },
     blockDate() {
       return format(toDate(this.block.unixtime), 'yyyy-MM-dd hh:mm')
     },
@@ -23,6 +20,9 @@ export default {
   watch: {
     // call again the method if the route changes
     $route: 'getBlock',
+    block () {
+      this.getTransactions()
+    },
   },
   created() {
     this.getBlock()
@@ -33,6 +33,14 @@ export default {
 
       fetch(`${ENV.apiUrl}/explorer/json/block?hash=${this.$route.params.blockId}`).then(response => response.json().then((json) => {
         vm.block = json
+      }))
+    },
+    getTransactions() {
+      const vm = this
+
+      if (!this.block.transactions.length) return
+      fetch(`${ENV.apiUrl}/explorer/json/transactions?transactions=${this.block.transactions}`).then(response => response.json().then((json) => {
+        vm.transactions = json
       }))
     },
   },
@@ -77,12 +85,15 @@ export default {
           <td>
             previous block
           </td>
-          <td>
+          <td v-if="block.prevhash">
             <router-link
               :to="{ name: 'block', params: { blockId: block.prevhash }}"
             >
               {{ block.prevhash }}
             </router-link>
+          </td>
+          <td v-else>
+            ¯\_(ツ)_/¯
           </td>
         </tr>
         <tr>
@@ -177,9 +188,34 @@ export default {
       </table>
 
       <h2>Transactions</h2>
-      <p>
-        {{ block.transactions }}
-      </p>
+      <ul>
+        <li
+          v-for="item in transactions"
+          :key="item.id"
+          :class="{
+            'is-longest': item.isLongest,
+          }"
+          tabindex="0"
+        >
+          <ul>
+            <li>
+              id: {{ item.id }}
+            </li>
+            <li>
+              address: {{ item.address }}
+            </li>
+            <li>
+              amount: {{ item.amount }}
+            </li>
+            <li>
+              fee: {{ item.fee }}
+            </li>
+            <li>
+              goldenticket: {{ item.goldenticket }}
+            </li>
+          </ul>
+        </li>
+      </ul>
 
     </div>
 
