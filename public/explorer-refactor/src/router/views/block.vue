@@ -39,7 +39,8 @@ export default {
       const vm = this
 
       if (!this.block.transactions.length) return
-      fetch(`${ENV.apiUrl}/explorer/json/transactions?transactions=${this.block.transactions}`).then(response => response.json().then((json) => {
+      const transactions = JSON.stringify(this.block.transactions)
+      fetch(`${ENV.apiUrl}/explorer/json/transactions?transactions=${transactions}`).then(response => response.json().then((json) => {
         vm.transactions = json
       }))
     },
