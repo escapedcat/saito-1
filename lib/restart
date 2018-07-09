@@ -3,8 +3,8 @@ rm -f saito/web/client.options
 rm -f remixtmp.js
 rm -f saito/web/browser.js.gz
 rm -f data/database.sq3
+rm -f data/bank.sq3
 rm -f data/log.txt
-rm -f data/*.sq3
 rm -f data/*.sq3-journal
 rm -f data/blocks/*.blk
 rm -f data/blocks/*.zip
@@ -13,19 +13,27 @@ rm -f data/tmp/*.blk
 rm -f data/tmp/*.zip
 rm -f options
 rm -f modules/mod/registry/web/addresses.txt
-cp options.conf options
+rm -f logs/*
 
-./../node_modules/.bin/browserify browser.js -o saito/web/browser.js -i express -i sqlite3 -i express-basic-auth -i sendgrid -i request -i bluebird -i socket.io -i phantomjs -i express-fileupload -i body-parser -i shashmap -i http -i http-proxy -i simple-socks -i unzip -i node-zip -i shelljs
+if [ -e ./options.bank ]; then
+    cp options.bank options
+elif [ -e ./options.server ]; then
+    cp options.server options
+else
+    cp options.conf options
+fi
 
+./../node_modules/.bin/browserify browser.js -o saito/web/browser.js -i express -i sqlite3 -i express-basic-auth -i sendgrid -i request -i bluebird -i socket.io -i phantomjs -i express-fileupload -i body-parser -i shashmap -i http -i http-proxy -i simple-socks -i unzip -i node-zip -i shelljs -i keythereum -i ethereumjs-util -i crx
+
+# -i winston -i winston-daily-rotate-file
 
 for d in modules/mods/* ; do
- if [ -f $d/compile ] ; then
-   chmod +x $d/compile
-   $d/compile
+ if [ -f $d/restart ] ; then
+   chmod +x $d/restart
+   $d/restart
  fi
 done
 
-rm -rf modules/mods/appstore/saitolib
 
 #cd saito/web
 #gzip -k browser.js

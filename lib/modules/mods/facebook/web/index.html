@@ -24,6 +24,8 @@
 
   <link rel="stylesheet" type="text/css" href="/facebook/style.css" />
 
+  <link rel="icon" media="all" type="image/x-icon" href="/favicon.ico?v=2"/>
+
 </head>
 <body>
 
@@ -59,15 +61,14 @@
           <div class="facebook_button_big left" id="settings"><i class="fa fa-gear"></i></div>
         </div>
 
-        <div class="following" id="following">
+        <!-- <div class="following" id="following">
           <div class="following_label">Currently Following:</div>
           <div id="following_friends_box">You have no friends :(</div>
-        </div>
+        </div> -->
 
       </div>
 
-      <div class="posts" id="posts">
-      </div>
+      <div class="posts" id="posts"></div>
 
       <div class="advert advert-300-250" id="advert-300-250"></div>
 
@@ -83,6 +84,11 @@
 
 
   <div class="lightbox_follow" id="lightbox_follow" style="display:none">
+    <div class="following" id="following">
+      <div class="following_label">Currently Following:</div>
+      <div id="following_friends_box" style="font-size: 16px; font-weight: bold;">You have no friends :(</div>
+    </div>
+
     <center>Who do you want to follow:</center>
     <p></p>
     <input id="lightbox_follow_input" class="lightbox_follow_input" />

@@ -1,4 +1,3 @@
-
 .mail-module-label {
   font-weight:bold;
   position:absolute;
@@ -83,7 +82,6 @@
  width: 100%;
 }
 
-
 .sidebar {
  grid-area: sidebar;
  float: left;
@@ -160,6 +158,7 @@
 .mail-controls-delete {
 }
 .mail-controls-settings {
+ margin-right: 0px;
 }
 .returnButton {
  display:none;
@@ -167,11 +166,18 @@
  color: #444;
 }
 .mail-alertbox {
+ display:none;
  grid-area: mail-alertbox;
  font-size: 1.2em;
  margin-top:4px;
  justify-self: center;
  align-self: center;
+ z-index: 2000;
+ background-color: white;
+ padding-left: 10px;
+ padding-right: 10px;
+ padding-top: 3px;
+ padding-bottom: 3px;
 }
 .mail-balance {
  grid-area: mail-balance;
@@ -254,6 +260,9 @@
   vertical-align: center;
 }
 
+.reply {
+  margin-top: 7px;
+}
 .mail tr {
   width: 100%;
   cursor: pointer;
@@ -350,6 +359,7 @@ td .from {
 .module_editable_space {
   grid-area: compose_module_edit_area;
   clear: both;
+  max-width: 95vw;
   min-height: 411px;
   font-size: 1rem;
   line-height: 1.2em;
@@ -357,9 +367,7 @@ td .from {
 
 
 .module_instructions {
-  width: 80%;
-  height: 438px;
-  padding: 40px;
+  padding-top: 50px;
   font-size: 1.4em;
   line-height: 1.8em;
 }
@@ -547,12 +555,11 @@ td .from {
 }
 
 .email_title {
-  /* margin-top: 15px; */
-  /* max-width: 830px; */
   width: 100%;
   padding: 5px;
   font-size: 1.2em;
   border: 1px solid #a5a5a5;
+  margin-bottom: 10px;
 }
 
 .email_body {
@@ -583,7 +590,8 @@ td .from {
   display:block;
   color:#333;
   text-decoration:none;
-  padding:0 15px;
+  padding-left: 14px;
+  padding-right: 12px;
   font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 #primary_nav_wrap ul li {
@@ -596,7 +604,7 @@ td .from {
   background:#ddd
 }
 #primary_nav_wrap ul li:hover {
-  background:#f6f6f6
+/*        background:#f6f6f6 */
 }
 #primary_nav_wrap ul ul {
   display:none;
@@ -620,7 +628,6 @@ td .from {
 #primary_nav_wrap ul li:hover > ul {
   display:block
 }
-
 
 
 
@@ -709,11 +716,25 @@ td .from {
     display: none;
   }
 
+  .mail-controls-delete {
+    margin-left: 12px;
+  }
+
+
+
+  .inner_message .from {
+    width: 120px;
+    max-width: 120px;
+    overflow: hidden;
+    border-top: 0px;
+    vertical-align: center;
+  }
+
   .mail-alertbox {
-    position:absolute;
+    position: absolute;
     left: 70px;
-    top:0px;
-    height: 49px;
+    top: 0px;
+    height: 39px;
     margin-top: 5px;
     font-size: 0.75em;
   }
@@ -723,6 +744,9 @@ td .from {
     padding-left: 0px;
   }
 
+  .settings-wrapper {
+    display: none;
+  }
   .mail-controls-btn {
     padding-top: 12px;
   }
@@ -730,6 +754,7 @@ td .from {
   .mail-controls {
    min-width: 140px;
    align-self: top;
+   padding-bottom:14px;
   }
 
   .mail-controls-back {
