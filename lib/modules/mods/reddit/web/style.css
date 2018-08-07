@@ -235,7 +235,8 @@ textarea {
 .post {
  /* min-width: 600px; */
  min-height: 75px;
- padding-bottom: 20px;
+ /* padding-bottom: 20px; */
+ margin-bottom: 20px;
  clear:both;
 }
 .votes {
@@ -260,7 +261,7 @@ textarea {
 .content {
  float:left;
  /* min-width:500px; */
- max-width: 600px;
+ max-width: 500px;
  margin-left: 15px;
  margin-bottom: 20px;
 }
@@ -281,13 +282,13 @@ textarea {
 }
 .content_details {
  color: #474747;
- font-size:0.8em; 
+ font-size:0.8em;
  padding-top:4px;
  clear:both;
 }
 .content_links {
  color: #373737;
- font-size:0.85em; 
+ font-size:0.85em;
  font-weight: bold;
  padding-top: 4px;
  clear:all;
@@ -418,7 +419,8 @@ textarea {
 .d_text {
  clear:both;
  font-size:1em;
- padding-top:25px;
+ padding-top:10px;
+ text-align: justify;
 }
 
 
@@ -448,6 +450,9 @@ textarea {
  padding-left: 5px;
  padding-right: 5px;
  display: table-cell;
+ /* width:100%; */
+ max-width: 650px;
+ text-align: justify;
 }
 .comment_text {
 }
@@ -455,6 +460,9 @@ textarea {
  font-size: 0.8em;
  margin-bottom: 8px;
  color: #373737;
+}
+.comment_header_clickable {
+ cursor:pointer;
 }
 .comment_links {
  font-size: 0.8em;
@@ -596,24 +604,44 @@ textarea {
  float: left;
  margin-left: 10px;
  padding-left: 10px;
- padding-rignt: 10px;
+ padding-right: 10px;
  padding-top: 5px;
  margin-right: 10px;
 }
 
+
+@media only screen and (min-width: 650px) {
+    .d_text{
+        padding-left: 25px;
+        padding-right: 25px;
+        max-width: 650px;
+    }
+}
+
+
+@media only screen and (max-width: 970px) {
+    .d_content_title{
+        max-width: 300px;
+        max-height: 60px;
+        overflow: hidden;
+    }
+}
 
 @media only screen and (max-width: 800px) {
     .main {
         grid-template-rows: auto auto;
         grid-template-columns: 1fr;
         grid-template-areas:
-        "content" 
+        "content"
         "sidebar";
     }
     .balance {
         position: absolute;
         top: 0.5rem;
         right: 5.5rem;
+    }
+    .content{
+        max-width: 250px;
     }
     .submit {
         position: absolute;
@@ -623,4 +651,27 @@ textarea {
         margin-right: 5px;
     }
 
+}
+blockquote {
+    border-left: 8px solid #d14836;
+    margin-left: 5px;
+    padding-left: 10px;
+}
+
+.module-loading {
+    margin:25px;
+    float: left;
+}
+.loader-grid {
+  display: grid;
+  grid-column-gap: 5px;
+}
+.loader-head {
+  grid-area: 1 / span 2;
+}
+.loader-throbber {
+
+}
+.loader-message {
+  font-size: 0.6em;
 }

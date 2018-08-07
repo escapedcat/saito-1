@@ -46,6 +46,14 @@
  color:inherits
 }
 
+.settings_button {
+ padding-top:4px;
+ padding-bottom:4px;
+ padding-left:6px;
+ padding-right:6px;
+ font-size:1.em;
+}
+
 .logo_text {
  font-family:Georgia;
  padding-top:6px;
@@ -203,6 +211,7 @@
 }
 .mail {
  grid-area: mail;
+ overflow: auto;
  float: left;
 }
 
@@ -345,7 +354,7 @@ td .from {
 }
 
 .lightbox_message_text {
-  grdi-area: text;
+  grid-area: text;
   font-size: 1.2em;
   margin-top: 10px;
   padding-top: 10px;
@@ -353,7 +362,7 @@ td .from {
   min-height: 520px;
   height: 520px;
   line-height: 27px;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .module_editable_space {
@@ -549,6 +558,9 @@ td .from {
   border: 1px solid #b0281a;
 }
 
+.message {
+  overflow: auto;
+}
 
 .message_container {
   margin-left: 1em;
@@ -628,6 +640,30 @@ td .from {
   display:block
 }
 
+#blockchain_syncfade {
+ max-width:140px;
+ margin-left:auto;
+ margin-right:auto;
+}
+#blockchain_syncbox {
+ background-color:#f7f7f7;
+ height:20px;
+ border: 1px solid #888;
+}
+#blockchain_syncbar {
+ background-color: #5af541;
+ width: 0%;
+ height:20px;
+ overflow: none;
+ float:left;
+}
+#blockchain_synclabel {
+ font-size:0.95em;
+ margin-top:15px;
+ margin-top:5px;
+ color: #888;
+}
+
 
 
 
@@ -658,6 +694,8 @@ td .from {
     font-size:1.1em;
     line-height: 21px;
   }
+
+
 
   .sidebar {
     display: flex;
@@ -792,4 +830,26 @@ td .from {
 
 }
 
+blockquote {
+    border-left: 8px solid #d14836;
+    margin-left: 5px;
+    padding-left: 10px;
+}
 
+.module-loading {
+    margin:25px;
+    float: left;
+}
+.loader-grid {
+  display: grid;
+  grid-column-gap: 5px;
+}
+.loader-head {
+  grid-area: 1 / span 2;
+}
+.loader-throbber {
+
+}
+.loader-message {
+  font-size: 0.6em;
+}
