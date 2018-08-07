@@ -1,3 +1,4 @@
+.DS_Store
 package-lock.json
 node_modules
 node_modules/*
@@ -34,5 +35,4 @@ lib/modules/mods/appstore/web/cache/*
 lib/modules/mods/explorer/web/index.html
 extras/chrome/key.pem
 extras/chrome/modules/mods/*
-
-
+.eslintcache
